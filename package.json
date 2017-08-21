@@ -15,7 +15,7 @@
     "lint": "eslint --quiet",
     "lint:all": "eslint --quiet .",
     "build": "webpack",
-    "start": "webpack-dev-server --https"
+    "start": "webpack-dev-server"
   },
   "license": "WTFPL",
   "devDependencies": {

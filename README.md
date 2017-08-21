@@ -11,9 +11,7 @@ $ yarn start
 
 And you'll access to below URLs.
 
-- https://localhost:8080/hello_world/
-
-> Service worker requires HTTPS.
+- http://localhost:8080/hello_world/
 
 ## Author
 
