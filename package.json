@@ -1,0 +1,33 @@
+{
+  "name": "service-worker-playground",
+  "version": "0.0.0",
+  "description": "Service worker playground",
+  "private": true,
+  "author": {
+    "name": "Yuki Hattori",
+    "url": "https://github.com/yhatt"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yhatt/service-worker-playground"
+  },
+  "scripts": {
+    "lint": "eslint --quiet",
+    "lint:all": "eslint --quiet .",
+    "build": "webpack",
+    "start": "webpack-dev-server --https"
+  },
+  "license": "WTFPL",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^7.2.3",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.0",
+    "eslint": "^4.5.0",
+    "eslint-config-airbnb-base": "^11.3.1",
+    "eslint-plugin-import": "^2.7.0",
+    "glob": "^7.1.2",
+    "webpack": "^3.5.5",
+    "webpack-dev-server": "^2.7.1"
+  }
+}
