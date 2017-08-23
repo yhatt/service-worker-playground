@@ -15,6 +15,7 @@ const workers = glob.sync('./*/worker.js')
 
 module.exports = {
   devServer: {
+    https: true,
     hot: false,
     inline: false,
   },
