@@ -1,7 +1,7 @@
 class RoboHash {
   constructor(num) {
     this.urls = []
-    for (let i = 1; i <= num; i++) this.urls.push(`https://robohash.org/${i}.png?size=100x100`)
+    for (let i = 1; i <= num; i += 1) this.urls.push(`https://robohash.org/${i}.png?size=100x100`)
   }
 
   generateImages(element) {
