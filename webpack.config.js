@@ -1,13 +1,24 @@
 const path = require('path')
 const glob = require('glob')
 
-const entry = glob.sync('./*/entry.js').reduce((obj, fn) => ({
-  ...obj,
-  [path.join(fn, '../dist/', path.basename(fn))]: fn,
-}), {})
+const entries = glob.sync('./*/entry.js')
+  .reduce((obj, fn) => ({
+    ...obj,
+    [path.join(fn, '../dist/', path.basename(fn))]: fn,
+  }), {})
+
+const workers = glob.sync('./*/worker.js')
+  .reduce((obj, fn) => ({
+    ...obj,
+    [path.join(fn, '../', `${path.basename(fn, '.js')}-compiled.js`)]: fn,
+  }), {})
 
 module.exports = {
-  entry,
+  devServer: {
+    hot: false,
+    inline: false,
+  },
+  entry: { ...entries, ...workers },
   output: {
     path: __dirname,
     filename: '[name]',
