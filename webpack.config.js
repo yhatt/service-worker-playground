@@ -1,5 +1,8 @@
 const path = require('path')
 const glob = require('glob')
+const webpack = require('webpack')
+
+require('dotenv').config()
 
 const entries = glob.sync('./*/entry.js')
   .reduce((obj, fn) => ({
@@ -12,6 +15,10 @@ const workers = glob.sync('./*/worker.js')
     ...obj,
     [path.join(fn, '../', `${path.basename(fn, '.js')}-compiled.js`)]: fn,
   }), {})
+
+const plugins = [
+  new webpack.EnvironmentPlugin(['VAPID_PUBLIC_KEY', 'VAPID_PRIVATE_KEY']),
+]
 
 module.exports = {
   devServer: {
@@ -33,4 +40,5 @@ module.exports = {
       { test: /\.js$/, exclude: /node_modules/, use: ['babel-loader'] },
     ],
   },
+  plugins,
 }

@@ -15,7 +15,8 @@
     "lint": "eslint --quiet",
     "lint:all": "eslint --quiet .",
     "build": "webpack",
-    "start": "webpack-dev-server"
+    "start": "webpack-dev-server",
+    "webpush": "node ./webpush-server.js"
   },
   "license": "WTFPL",
   "devDependencies": {
@@ -23,11 +24,16 @@
     "babel-eslint": "^7.2.3",
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.0",
+    "commander": "^2.11.0",
+    "dotenv": "^4.0.0",
     "eslint": "^4.5.0",
     "eslint-config-airbnb-base": "^11.3.2",
     "eslint-plugin-import": "^2.7.0",
     "glob": "^7.1.2",
     "webpack": "^3.5.5",
     "webpack-dev-server": "^2.7.1"
+  },
+  "dependencies": {
+    "web-push": "^3.2.2"
   }
 }
