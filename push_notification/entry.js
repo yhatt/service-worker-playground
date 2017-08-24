@@ -13,7 +13,7 @@ const urlBase64ToUint8Array = (base64String) => {
   return outputArray
 }
 
-const arrayBufferToBase64 = (buf) =>
+const arrayBufferToBase64 = buf =>
   window.btoa(String.fromCharCode.apply(null, new Uint8Array(buf))).replace(/\+/g, '-').replace(/\//g, '_')
 
 new ServiceWorker('/push_notification/worker-compiled.js', { scope: '/push_notification/' })
@@ -22,18 +22,18 @@ new ServiceWorker('/push_notification/worker-compiled.js', { scope: '/push_notif
       userVisibleOnly: true,
       applicationServerKey: urlBase64ToUint8Array(process.env.VAPID_PUBLIC_KEY),
     })
-    .then((subscription) => {
-      subscriptionContent.textContent = 'Notification is subscribing now. You can send notification with below:'
-      notificationCommand.style.display = 'block'
+      .then((subscription) => {
+        subscriptionContent.textContent = 'Notification is subscribing now. You can send notification with below:'
+        notificationCommand.style.display = 'block'
 
-      notificationCommand.value = `yarn webpush -- \\
+        notificationCommand.value = `yarn webpush -- \\
         --endpoint ${subscription.endpoint} \\
         --auth ${arrayBufferToBase64(subscription.getKey('auth'))} \\
         --p256dh ${arrayBufferToBase64(subscription.getKey('p256dh'))} \\
         --payload 'Test notification!!'`
-    })
-    .catch((e) => {
-      subscriptionContent.textContent = `Not subscribed (${e})`
-    })
+      })
+      .catch((e) => {
+        subscriptionContent.textContent = `Not subscribed (${e})`
+      })
   })
   .catch(message => alert(message))

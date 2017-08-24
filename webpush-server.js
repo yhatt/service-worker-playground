@@ -16,13 +16,13 @@ if (!commander.p256dh) throw new Error('This command requires p256dh token.')
 webpush.setVapidDetails(
   process.env.CONTACT,
   process.env.VAPID_PUBLIC_KEY,
-  process.env.VAPID_PRIVATE_KEY
+  process.env.VAPID_PRIVATE_KEY,
 )
 
 webpush.sendNotification({
   endpoint: commander.endpoint,
   keys: {
     auth: commander.auth,
-    p256dh: commander.p256dh
-  }
+    p256dh: commander.p256dh,
+  },
 }, commander.payload)
