@@ -12,7 +12,8 @@ $ yarn start
 And you'll access to below URLs.
 
 - Offline cache: http://localhost:8080/offline_cache/
-- Push notification: http://localhost:8080/push_notification/ (It would not work in incognito mode)
+- Pie chart image proxy: http://localhost:8080/pie_chart_image_proxy/
+- Push notification: http://localhost:8080/push_notification/ _(It would not work in incognito mode)_
 
 ### For development
 
