@@ -12,5 +12,5 @@ new ServiceWorker('/push_notification/worker-compiled.js', { scope: '/push_notif
   .catch(message => alert(message))
 
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.reggist
+  //navigator.serviceWorker.reggist
 }

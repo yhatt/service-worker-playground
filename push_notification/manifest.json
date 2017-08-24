@@ -1,0 +1,8 @@
+{
+  "name": "Service worker Playground",
+  "short_name": "service-worker-playground",
+  "description": "Service worker Playground push notification.",
+  "start_url": "/push_notification/index.html",
+  "scope": "/push_notification/",
+  "lang": "ja-JP"
+}

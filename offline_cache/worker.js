@@ -2,6 +2,7 @@
 import RoboHash from './robohash'
 
 self.addEventListener('install', (e) => {
+  self.skipWaiting()
   e.waitUntil(
     caches.open('v1').then(cache => cache.addAll(RoboHash.urls)),
   )
