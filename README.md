@@ -11,7 +11,8 @@ $ yarn start
 
 And you'll access to below URLs.
 
-- http://localhost:8080/hello_world/
+- Offline cache: http://localhost:8080/offline_cache/
+- Push notification: http://localhost:8080/push_notification/ (It would not work in incognito mode)
 
 ### For development
 
