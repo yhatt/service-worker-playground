@@ -12,4 +12,4 @@ const updateChart = (query) => {
 const queryInput = document.querySelector('#query')
 updateChart(queryInput.value)
 
-queryInput.addEventListener('input', (e) => updateChart(e.target.value))
+queryInput.addEventListener('input', e => updateChart(e.target.value))

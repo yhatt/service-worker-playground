@@ -11,16 +11,16 @@ self.addEventListener('fetch', (e) => {
   if (requestUrl.hostname === 'localhost' && requestUrl.pathname === '/pie_chart_image_proxy/chart.gif') {
     const query = qs.parse(requestUrl.query)
     const targetKeys = Object.keys(query).filter(q => !isNaN(parseFloat(query[q])))
-    const values = targetKeys.map((key) => parseFloat(query[key]))
+    const values = targetKeys.map(key => parseFloat(query[key]))
     const chart = new PieChart(...values)
 
     e.respondWith(
       new Response(
         chart.renderAsSVG(),
         {
-          headers: { 'Content-Type': 'image/svg+xml' }
-        }
-      )
+          headers: { 'Content-Type': 'image/svg+xml' },
+        },
+      ),
     )
   }
 })

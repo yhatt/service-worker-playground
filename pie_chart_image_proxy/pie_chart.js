@@ -29,10 +29,10 @@ export default class PieChart {
 
       return this.values.map((val) => {
         const style = [
-          `fill:transparent;`,
+          'fill:transparent;',
           `stroke:${this.colors[index % this.colors.length]};`,
           `stroke-width:${validSize / 2.0};`,
-          `stroke-dasharray:0 ${strokeLength / 2.0  * pos / valueSum} ${strokeLength / 2.0 * val / valueSum} ${strokeLength};`,
+          `stroke-dasharray:0 ${strokeLength / 2.0 * pos / valueSum} ${strokeLength / 2.0 * val / valueSum} ${strokeLength};`,
         ].join('')
 
         pos += val
