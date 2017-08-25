@@ -2,14 +2,21 @@
 
 ## Getting started
 
-Install packages and start server:
+First, put `.env` to config your environment.
+
+```bash
+$ cp ./.env{.sample,}
+$ vi ./.env
+```
+
+And install packages and start server:
 
 ```bash
 $ yarn install
 $ yarn start
 ```
 
-And you'll access to below URLs.
+That's it. You'll access to below URLs.
 
 - Offline cache: http://127.0.0.1:8080/offline_cache/
 - Pie chart image proxy: http://127.0.0.1:8080/pie_chart_image_proxy/
