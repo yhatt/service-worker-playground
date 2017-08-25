@@ -16,5 +16,5 @@ self.addEventListener('push', (e) => {
 
 self.addEventListener('notificationclick', (e) => {
   e.notification.close()
-  e.waitUntil(clients.openWindow('http://localhost:8080/push_notification/'))
+  e.waitUntil(clients.openWindow('http://127.0.0.1:8080/push_notification/'))
 })

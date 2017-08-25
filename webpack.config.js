@@ -25,7 +25,7 @@ module.exports = {
     https: !!process.env.HTTPS,
     hot: false,
     inline: false,
-    host: '0.0.0.0',
+    host: '127.0.0.1',
   },
   entry: { ...entries, ...workers },
   output: {
