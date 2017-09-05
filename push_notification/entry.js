@@ -19,7 +19,7 @@ const arrayBufferToBase64 = buf =>
 if (process.env.NODE_ENV === 'production') {
   alert('Opps! Push notification demo is not working on Github Pages currently.')
 } else {
-  new ServiceWorker('/push_notification/_worker.js', { scope: '/push_notification/' })
+  new ServiceWorker('../_worker.js')
     .then((worker) => {
       worker.pushManager.subscribe({
         userVisibleOnly: true,

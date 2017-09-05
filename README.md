@@ -1,8 +1,8 @@
 # Service worker playground
 
-## [Demo](https://yhatt.github.io/service-worker-playground/)
+## [Demo](https://yhatt.github.io/service-worker-playground/index.html)
 
-- **https://yhatt.github.io/service-worker-playground/**
+- **https://yhatt.github.io/service-worker-playground/index.html**
   - [Offline cache](https://yhatt.github.io/service-worker-playground/offline_cache/)
   - [Pie chart image proxy](https://yhatt.github.io/service-worker-playground/pie_chart_image_proxy/)
   - *Push notification* (Please run locally)

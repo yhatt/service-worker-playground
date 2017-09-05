@@ -1,7 +1,7 @@
 import ServiceWorker from '../lib/service_worker'
 import qs from 'qs'
 
-new ServiceWorker('/pie_chart_image_proxy/_worker.js', { scope: '/pie_chart_image_proxy/' })
+new ServiceWorker('../_worker.js')
   .catch(message => alert(message))
 
 const updateChart = (query) => {
