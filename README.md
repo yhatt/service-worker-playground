@@ -1,5 +1,12 @@
 # Service worker playground
 
+## [Demo](https://yhatt.github.io/service-worker-playground/)
+
+- **https://yhatt.github.io/service-worker-playground/**
+  - [Offline cache](https://yhatt.github.io/service-worker-playground/offline_cache/)
+  - [Pie chart image proxy](https://yhatt.github.io/service-worker-playground/pie_chart_image_proxy/)
+  - *Push notification* (Please run locally)
+
 ## Getting started
 
 First, put `.env` to config your environment.
@@ -9,7 +16,7 @@ $ cp ./.env{.sample,}
 $ vi ./.env
 ```
 
-And install packages and start server:
+Install packages, and start server (Recommends yarn):
 
 ```bash
 $ yarn install
@@ -18,9 +25,9 @@ $ yarn start
 
 That's it. You'll access to below URLs.
 
-- Offline cache: http://127.0.0.1:8080/offline_cache/
-- Pie chart image proxy: http://127.0.0.1:8080/pie_chart_image_proxy/
-- Push notification: http://127.0.0.1:8080/push_notification/ _(It would not work in incognito mode)_
+- [Offline cache](http://127.0.0.1:8080/offline_cache/)
+- [Pie chart image proxy](http://127.0.0.1:8080/pie_chart_image_proxy/)
+- [Push notification](http://127.0.0.1:8080/push_notification/) _(It would not work in incognito mode)_
 
 ### For development
 

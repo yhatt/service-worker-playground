@@ -8,7 +8,7 @@ self.addEventListener('install', () => self.skipWaiting())
 self.addEventListener('fetch', (e) => {
   const requestUrl = url.parse(e.request.url)
 
-  if (requestUrl.hostname === '127.0.0.1' && requestUrl.pathname === '/pie_chart_image_proxy/chart.gif') {
+  if (requestUrl.pathname === '/pie_chart_image_proxy/chart.gif') {
     const query = qs.parse(requestUrl.query)
     const targetKeys = Object.keys(query).filter(q => !isNaN(parseFloat(query[q])))
     const values = targetKeys.map(key => parseFloat(query[key]))

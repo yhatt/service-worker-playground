@@ -7,18 +7,20 @@ require('dotenv').config()
 const entries = glob.sync('./*/entry.js')
   .reduce((obj, fn) => ({
     ...obj,
-    [path.join(fn, '../dist/', path.basename(fn))]: fn,
+    [path.join(fn, '../_dist/', path.basename(fn))]: fn,
   }), {})
 
 const workers = glob.sync('./*/worker.js')
   .reduce((obj, fn) => ({
     ...obj,
-    [path.join(fn, '../', `${path.basename(fn, '.js')}-compiled.js`)]: fn,
+    [path.join(fn, '../', `_${path.basename(fn, '.js')}.js`)]: fn,
   }), {})
 
-const plugins = [
-  new webpack.EnvironmentPlugin(['VAPID_PUBLIC_KEY', 'VAPID_PRIVATE_KEY']),
-]
+let plugins = []
+
+if (process.env.NODE_ENV !== 'production') {
+  plugins.push(new webpack.EnvironmentPlugin(['VAPID_PUBLIC_KEY', 'VAPID_PRIVATE_KEY']))
+}
 
 module.exports = {
   devServer: {

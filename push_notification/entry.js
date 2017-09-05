@@ -16,24 +16,28 @@ const urlBase64ToUint8Array = (base64String) => {
 const arrayBufferToBase64 = buf =>
   window.btoa(String.fromCharCode.apply(null, new Uint8Array(buf))).replace(/\+/g, '-').replace(/\//g, '_')
 
-new ServiceWorker('/push_notification/worker-compiled.js', { scope: '/push_notification/' })
-  .then((worker) => {
-    worker.pushManager.subscribe({
-      userVisibleOnly: true,
-      applicationServerKey: urlBase64ToUint8Array(process.env.VAPID_PUBLIC_KEY),
-    })
-      .then((subscription) => {
-        subscriptionContent.textContent = 'Notification is subscribing now. You can send notification with below:'
-        notificationCommand.style.display = 'block'
+if (process.env.NODE_ENV === 'production') {
+  alert('Opps! Push notification demo is not working on Github Pages currently.')
+} else {
+  new ServiceWorker('/push_notification/_worker.js', { scope: '/push_notification/' })
+    .then((worker) => {
+      worker.pushManager.subscribe({
+        userVisibleOnly: true,
+        applicationServerKey: urlBase64ToUint8Array(process.env.VAPID_PUBLIC_KEY),
+      })
+        .then((subscription) => {
+          subscriptionContent.textContent = 'Notification is subscribing now. You can send notification with below:'
+          notificationCommand.style.display = 'block'
 
-        notificationCommand.value = `yarn webpush -- \\
-        --endpoint ${subscription.endpoint} \\
-        --auth ${arrayBufferToBase64(subscription.getKey('auth'))} \\
-        --p256dh ${arrayBufferToBase64(subscription.getKey('p256dh'))} \\
-        --payload 'Test notification!!'`
-      })
-      .catch((e) => {
-        subscriptionContent.textContent = `Not subscribed (${e})`
-      })
-  })
-  .catch(message => alert(message))
+          notificationCommand.value = `npm run webpush -- \\
+          --endpoint ${subscription.endpoint} \\
+          --auth ${arrayBufferToBase64(subscription.getKey('auth'))} \\
+          --p256dh ${arrayBufferToBase64(subscription.getKey('p256dh'))} \\
+          --payload 'Test notification!!'`
+        })
+        .catch((e) => {
+          subscriptionContent.textContent = `Not subscribed (${e})`
+        })
+    })
+    .catch(message => alert(message))
+}

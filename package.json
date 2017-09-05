@@ -14,7 +14,7 @@
   "scripts": {
     "lint": "eslint --quiet",
     "lint:all": "eslint --quiet .",
-    "build": "webpack",
+    "build": "cross-env NODE_ENV=production webpack -p",
     "start": "webpack-dev-server",
     "webpush": "node ./webpush-server.js"
   },
@@ -25,6 +25,7 @@
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.0",
     "commander": "^2.11.0",
+    "cross-env": "^5.0.5",
     "dotenv": "^4.0.0",
     "eslint": "^4.5.0",
     "eslint-config-airbnb-base": "^11.3.2",
